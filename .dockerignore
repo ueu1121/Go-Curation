@@ -1,0 +1,9 @@
+node_modules
+frontend/node_modules
+frontend/build
+**/.env
+**/__pycache__
+.git
+memory
+test_reports
+.emergent

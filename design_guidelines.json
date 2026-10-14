@@ -1,0 +1,114 @@
+{
+  "theme": "light",
+  "typography": {
+    "heading_font": "Lora, serif",
+    "body_font": "Figtree, sans-serif",
+    "hierarchy": {
+      "h1": "text-3xl sm:text-4xl font-serif tracking-tight text-neutral-900",
+      "h2": "text-2xl sm:text-3xl font-serif tracking-tight text-neutral-900",
+      "h3": "text-xl sm:text-2xl font-serif text-neutral-800",
+      "h4": "text-lg font-sans font-semibold text-neutral-800",
+      "body_large": "text-lg sm:text-xl font-sans leading-relaxed text-neutral-700",
+      "body": "text-base font-sans leading-relaxed text-neutral-700",
+      "small": "text-sm font-sans text-neutral-500",
+      "overline": "text-xs font-sans uppercase tracking-[0.2em] text-neutral-500"
+    },
+    "notes": "Target demographic is ~50-year-old adults. Typography must prioritize legibility. Avoid ultra-thin weights. Line-height should be generous (`leading-relaxed` for body)."
+  },
+  "colors": {
+    "archetype": "Organic & Earthy",
+    "background": {
+      "default": "#FDFBF7",
+      "surface": "#FFFFFF",
+      "subtle": "#F5F3ED"
+    },
+    "primary": {
+      "default": "#2D4A3E",
+      "hover": "#243A31",
+      "foreground": "#FFFFFF"
+    },
+    "accent": {
+      "default": "#C76B4B",
+      "hover": "#B35A3D",
+      "foreground": "#FFFFFF"
+    },
+    "neutral": {
+      "900": "#1C1917",
+      "800": "#292524",
+      "700": "#44403C",
+      "200": "#E7E5E4",
+      "100": "#F5F5F4"
+    },
+    "reactions": {
+      "interested": "#2D4A3E",
+      "not_today": "#9CA3AF",
+      "not_for_us": "#EF4444"
+    },
+    "notes": "Palette inspired by a considered, calm local concierge. Uses warm sand/off-white for background, deep forest green for primary action, and terracotta for accents/reactions. Do not use pure white or pure black."
+  },
+  "visual_enhancers": {
+    "surfaces": "Flat Solid surfaces with soft ambient shadows (`shadow-sm`, `shadow-md`) and delicate 1px borders (`border-neutral-200`). NO heavy glassmorphism for this demographic. NO neon.",
+    "border_radius": "Subtle roundness (`rounded-xl` or `rounded-2xl` for cards, `rounded-full` for chips/pills).",
+    "textures": "Subtle grain or warm solid colors to make the app feel warm and organic, but keep it very clean so it doesn't distract.",
+    "spacing": "Generous. Use `p-6` or `p-8` for sections to allow the design to breathe. Ensure touch targets are at least 48x48px."
+  },
+  "layouts": {
+    "core": "Mobile-first Web App. Max-width container (`max-w-md` or `max-w-lg` centered on desktop to mimic mobile view) with `min-h-screen bg-background-default`.",
+    "navigation": "Fixed bottom tab bar for mobile containing: Today, Upcoming, Our Ideas, History. Secondary nav (Preferences, Learned, Admin) can be in a top header profile/menu.",
+    "excursion_card": "Progressive disclosure. Collapsed state: Image (aspect-video or square), Name, Category, Date, 'Why worthwhile now' snippet. Quick reaction buttons (Interested, Not today, Not for us). Expanded state: Accordion revealing 'Why unique', 'Fit', 'Cost', 'Travel', 'Verification status'.",
+    "ideas_queue": "Dense list or bento grid with distinct status badges (queued, researching, etc).",
+    "tell_the_curator": "Prominent natural-language text area with a 'Confirm interpretation' block directly below it.",
+    "learned_insights": "Grid of preference cards with 'Accept/Edit/Dismiss' actions."
+  },
+  "motion": {
+    "transitions": "Warm, calm, and practical. Use `transition-transform transition-opacity duration-300 ease-in-out` for hover states. DO NOT use `transition-all` globally.",
+    "card_expansion": "Smooth height interpolation for progressive disclosure on cards.",
+    "page_load": "Subtle fade and slight slide-up (`translate-y-2`) for list items to feel polished."
+  },
+  "accessibility": {
+    "contrast": "Strict APCA/WCAG AA compliance. Text on backgrounds must have strong contrast. E.g., Use dark slate for body text over off-white backgrounds.",
+    "touch_targets": "Minimum 48x48px for all interactive elements (buttons, tabs, reaction icons).",
+    "focus": "Clear focus rings (`focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`).",
+    "testing": "All interactive elements MUST have `data-testid` attributes (e.g., `data-testid=\"reaction-interested-btn\"`)."
+  },
+  "component_name": {
+    "bottom_tabs": "Custom fixed bottom navigation using `lucide-react` icons.",
+    "cards": "Custom built using `div` with HTML/Tailwind for the specific progressive disclosure needs. Avoid rigid Shadcn Cards if they restrict layout.",
+    "drawer": "Shadcn `Drawer` (Bottom Sheet) for secondary actions like Filters (Easier, Quieter, Less driving, etc).",
+    "inputs": "Shadcn `Textarea` and `Input` for 'Tell the curator'.",
+    "badges": "Shadcn `Badge` for status (queued, eligible, etc) and 'DEMO data'."
+  },
+  "image_urls": {
+    "nature_trail": {
+      "url": "https://images.unsplash.com/photo-1637537791710-a78698013174?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxjb3VwbGUlMjB3YWxraW5nJTIwbmF0dXJlJTIwdHJhaWx8ZW58MHx8fHwxNzkyMDEwNzk1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Couple walking down a leaf covered road - Ideal for Waterfront Trail or Mount Nemo excursions."
+    },
+    "restaurant": {
+      "url": "https://images.unsplash.com/photo-1574966739987-65e38db0f7ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxmaW5lJTIwZGluaW5nJTIwcmVzdGF1cmFudCUyMGNvenl8ZW58MHx8fHwxNzkyMDEwNzk1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Fine dining setup - Ideal for Burlington downtown restaurants."
+    },
+    "art_gallery": {
+      "url": "https://images.unsplash.com/photo-1779070693953-5a2f9207a140?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxsb2NhbCUyMGFydCUyMGdhbGxlcnklMjBwYWludGluZ3xlbnwwfHx8fDE3OTIwMTA3OTV8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Art gallery entrance - Ideal for Art Gallery of Burlington excursions."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Design a mobile-first web app mimicking a native app experience. If viewed on desktop, center the main content in a max-width container with a subtle background to represent the phone canvas.",
+    "Implement a fixed bottom navigation bar (Home/Today, Upcoming, Ideas, History).",
+    "The UI must feel 'considered, warm, calm, practical, and specific'. Avoid flashy tech/AI aesthetics.",
+    "Build the Excursion Card as a highly robust component. It must have a collapsed state (quick scan & react) and an expanded state (deep details, fit score, verification links).",
+    "For 'Tell the curator', use a large, natural-language text area. When the user types, show a 'Proposed Interpretation' block below it to confirm understanding.",
+    "In Preferences, provide clear distinct toggle sections and utilize the 'What the curator has learned' feature as a summary panel.",
+    "Use Lucide-React for all iconography. Keep icons uniform in size (usually `w-6 h-6` for nav, `w-5 h-5` for buttons)."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You MUST use `.js` or `.jsx` extensions for React components. Do NOT use `.tsx` or TypeScript.",
+    "Ensure high contrast and readable font sizes. This app targets adults ~50 years old.",
+    "Do NOT use HTML `<select>` for dropdowns, use Shadcn Select or Drawer components.",
+    "Do NOT use generic 'transition: all' in CSS.",
+    "Always add `data-testid` attributes to interactive elements.",
+    "Do NOT use pure black or pure white backgrounds. Tint backgrounds slightly (e.g., #FDFBF7).",
+    "Provide empty, loading, and offline states for lists.",
+    "Clearly label mock data with DEMO badges."
+  ]
+}

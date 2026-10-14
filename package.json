@@ -1,0 +1,23 @@
+{
+  "name": "burlington-excursion-curator",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Phase 1 foundation: shared excursion board (React+TypeScript frontend, FastAPI+MongoDB backend)",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "install:all": "cd frontend && yarn install --frozen-lockfile && cd ../backend && pip install -r requirements-app.txt",
+    "dev": "bash scripts/dev.sh",
+    "build": "cd frontend && yarn build",
+    "start": "cd backend && uvicorn server:app --host 0.0.0.0 --port ${PORT:-8001}",
+    "lint": "cd backend && python -m flake8 curator tests scripts server.py",
+    "typecheck": "cd frontend && ./node_modules/.bin/tsc --noEmit -p .",
+    "test": "cd backend && python -m pytest -q tests",
+    "test:e2e": "cd backend && python -m scripts.smoke",
+    "verify": "yarn lint && yarn typecheck && yarn test",
+    "setup:check": "cd backend && python -m scripts.setup_check",
+    "migrate": "cd backend && python -m scripts.migrate",
+    "provision": "cd backend && python -m scripts.provision"
+  }
+}
