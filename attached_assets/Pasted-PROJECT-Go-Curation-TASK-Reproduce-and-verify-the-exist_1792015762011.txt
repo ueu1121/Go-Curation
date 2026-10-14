@@ -1,0 +1,127 @@
+PROJECT: Go-Curation
+TASK: Reproduce and verify the existing Phase 1 foundation in Replit.
+
+Repository:
+https://github.com/ueu1121/Go-Curation
+
+Branch:
+foundation/phase-1
+
+Last verified commit:
+f3e28f205137dea5ba85a34557344ea3dbe6ec23
+
+If the branch has newer commits, inspect their purpose and report the
+actual starting commit before making changes.
+
+IMPORTANT
+This is an existing application, not a request to rebuild it.
+
+Stack:
+- React with TypeScript.
+- FastAPI/Python.
+- MongoDB.
+
+Read first:
+- AGENTS.md.
+- README.md.
+- docs/agent-handoff.md.
+- docs/decisions.md.
+- docs/deployment.md.
+- docs/integration-contract.md.
+- The tracked implementation plan, if present.
+
+Do not switch to Next.js, Supabase, or another stack.
+Do not redesign the interface.
+Do not discard historical seed records.
+Do not enable live Gemini, Firecrawl, email, or scheduled publishing yet.
+
+GOAL
+Prove that the existing app works outside its original Emergent workspace.
+
+WORKING PROCESS
+1. Inspect the imported repository and working tree.
+2. Record the starting branch and commit.
+3. Claim the portability task in the handoff.
+4. Create a separate working branch such as:
+   portability/replit
+5. Follow the documented setup.
+6. Identify environment-specific assumptions.
+7. Make only the changes needed for reproducible operation in Replit.
+
+DATABASE
+Use an isolated development MongoDB database.
+Do not connect tests to production data.
+Do not depend on the original Emergent workspace database.
+
+Ask me for missing connection settings through Replit Secrets.
+Never put credentials in chat, source files, logs, or documentation.
+
+ACCOUNTS
+Provision fresh development accounts using the documented procedure:
+- Participant A.
+- Participant B.
+
+Do not expect the original workspace passwords or memory/ directory
+to exist.
+
+No public signup.
+No publicly deployed production instance with demo accounts enabled.
+
+VERIFICATION
+Run the repository’s documented commands for:
+- Setup diagnostics.
+- Backend tests.
+- Type checking.
+- Code quality.
+- Production build.
+- Smoke tests.
+
+Report exact commands and actual results.
+Do not claim tests passed if they were skipped.
+
+Manually verify:
+- Both participants can sign in.
+- Reactions are stored separately.
+- Inputs persist after refresh.
+- Preference confirmation and cancellation work.
+- A plan is not automatically a completed visit.
+- Demo recommendations cannot be published as genuine.
+- Unknown facts remain unknown.
+- Backend authorization is enforced.
+
+REAL-DATA CHECKPOINT
+After the foundation works:
+- Verify the administrator candidate-entry path.
+- Do not invent outings or evidence.
+- Prepare to enter two distinct manually researched candidates.
+- Keep them as drafts until their evidence and constraints are reviewed.
+- Verify publication accepts a qualified batch and rejects invalid ones.
+
+This checkpoint does not authorize external research integrations,
+scheduled publishing, or outgoing emails.
+
+PORTABILITY
+Document:
+- Replit startup commands.
+- Required environment variable names.
+- Frontend/backend routing.
+- Authentication cookie and origin configuration.
+- MongoDB connectivity.
+- Any changes needed relative to the original environment.
+
+Keep modifications portable.
+Do not introduce a required Replit-only identity or database service.
+
+FINAL HANDOFF
+Provide:
+1. Starting and ending branch/commit.
+2. What ran successfully.
+3. Exact changes made.
+4. Tests and results.
+5. Remaining blockers.
+6. What is still mocked.
+7. How to start the app.
+8. The next recommended Phase 2 task.
+
+Do not merge or change the default branch without approval.
+Do not buy services or activate automation.

@@ -1,7 +1,22 @@
-modules = ["python-3.12", "nodejs-20", "web"]
+modules = ["nodejs-20", "web", "python-3.11"]
 
 [nix]
 channel = "stable-25_05"
 
 [agent]
 expertMode = true
+
+[userenv]
+
+[userenv.development]
+ADMIN_EMAILS = "participant.a@example.invalid"
+APP_ENV = "development"
+AUTOMATION_HOUSEHOLD_SLUG = "primary"
+COOKIE_SECURE = "true"
+DB_NAME = "curator_replit_dev"
+DEMO_MODE = "true"
+DEV_PARTICIPANT_A_EMAIL = "participant.a@example.invalid"
+DEV_PARTICIPANT_B_EMAIL = "participant.b@example.invalid"
+INTERPRETER_PROVIDER = "guided"
+NOTIFICATION_PROVIDER = "disabled"
+RESEARCH_PROVIDER = "disabled"

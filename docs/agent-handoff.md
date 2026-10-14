@@ -60,6 +60,7 @@ n8n schedules (`n8n/README.md`), Firecrawl discovery, Gemini evidence-based extr
 | Task | Owner | Branch | Status |
 |---|---|---|---|
 | Phase 1 foundation | E1 | foundation/phase-1 | Done, awaiting owner review |
+| Replit portability reproduction | Replit Agent | portability/replit | In progress |
 
 ## Known limitations
 - Guided interpreter recognises a fixed set of phrasings; everything else becomes a note.
