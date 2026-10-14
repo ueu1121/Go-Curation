@@ -1,5 +1,22 @@
 # Agent handoff
 
+## Latest entry — 2026-10-14 · Replit portability reproduction (blocked)
+- **Starting point:** imported `foundation/phase-1` at `56d10c8b39e2d8e43f4b4b62d88634493c9df731`, one Replit-settings
+  commit newer than the brief's `f3e28f205137dea5ba85a34557344ea3dbe6ec23`. The newer commit changed `.replit` only.
+- **Working branch:** `portability/replit`. The development environment is set to Node 20 / Python 3.11 and uses
+  `curator_replit_dev`; all requested secrets are present in the development environment.
+- **Workflow:** `Start application` is configured on port 5000 but not started because its startup migrations require
+  the currently unreachable MongoDB connection.
+- **Changes:** pinned `pytest-xdist` in `requirements-app.txt`, because the documented install omitted the plugin
+  required by `pytest.ini`; added `replit.md`; updated the Replit deployment status below.
+- **Checks:** `install:all`, lint, TypeScript typecheck, and production build passed. Setup diagnostics report the
+  database unreachable. Backend tests stop during `conftest.py` before collecting tests because Atlas TLS handshakes
+  fail. Smoke tests and signed-in/manual UI flows are blocked and were not claimed as passing.
+- **Data and providers:** no candidate outings were created; no real or production database records were changed.
+  Interpretation remains guided, while research, notifications, and scheduling stay disabled.
+- **Blocker:** make the isolated development MongoDB reachable from Replit, then rerun diagnostics, tests, smoke,
+  account provisioning/seeding, and the required participant/admin flows. No deployment or branch merge was done.
+
 ## Latest entry — 2026-10-14 · Phase 1 foundation (milestones A, B, C + UI refinements)
 - **Branch:** `foundation/phase-1` on `github.com/ueu1121/Go-Curation` (repository was empty; no `main` exists yet —
   the owner decides when to create/merge `main`). Foundation commit: `6e01d75`. Because the repository was empty,
