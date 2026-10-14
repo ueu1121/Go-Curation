@@ -2,7 +2,8 @@
 
 ## Latest entry — 2026-10-14 · Phase 1 foundation (milestones A, B, C + UI refinements)
 - **Branch:** `foundation/phase-1` on `github.com/ueu1121/Go-Curation` (repository was empty; no `main` exists yet —
-  the owner decides when to create/merge `main`). Commit: see `git log foundation/phase-1` (first commit = this foundation).
+  the owner decides when to create/merge `main`). Foundation commit: `6e01d75`. Because the repository was empty,
+  GitHub made `foundation/phase-1` the default branch; the owner may create `main` from it and switch the default.
 - **Author:** E1 (Emergent agent). **Ownership:** no task currently claimed.
 
 ### What changed
