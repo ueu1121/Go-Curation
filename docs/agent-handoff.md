@@ -1,12 +1,35 @@
 # Agent handoff
 
-## Latest entry — 2026-10-14 · Replit portability reproduction (blocked)
+## Latest entry — 2026-10-14 · Replit Atlas recheck (blocked on authentication)
+- **Branch and commit:** `portability/replit` at `f360d9aa9367` before this documentation update; no merge or
+  deployment. The original portability starting point is documented in the initial setup entry below.
+- **Address and network:** outbound IPv4 rechecked as `35.243.136.216`, matching the temporary Atlas
+  `35.243.136.216/32` entry reported by the user. DNS, TCP/27017, and direct TLS 1.3 with normal certificate
+  verification succeeded for all three Atlas shard nodes. Replit development egress is dynamic; a changed IP may
+  require a new `/32` entry. The exact expiry time and Atlas access-list state are not independently visible here.
+- **Database:** configured app database is `curator_replit_dev`; tests override to isolated `curator_pytest`.
+  Driver ping returned Atlas error `8000` (`bad auth: authentication failed`), so user permissions for both DBs
+  are unverified.
+- **Workflow:** restarted once after the access-list change. Frontend build passed; FastAPI exited during startup
+  migrations on the authentication error. Do not restart repeatedly until `MONGO_URL` authentication is corrected.
+- **Checks:** setup diagnostics failed for database, migrations, and participant accounts. Tests stopped in
+  `conftest.py` before collection at the `curator_pytest` cleanup step. Smoke verification failed before API checks:
+  the backend was down and HTTPS to the Replit preview failed certificate verification. No TLS bypass was used.
+- **Diagnostics:** Python 3.11.14, OpenSSL 3.6.0, PyMongo 4.6.3, Motor 3.3.1, certifi 2026.7.22; default system
+  CA file `/etc/ssl/certs/ca-certificates.crt`, 174 roots loaded.
+- **Data and providers:** no database drop/write succeeded and no candidate outings were created. No production data
+  or deployment changed. Real research, notifications, and scheduling remain disabled.
+- **Next step:** correct the development MongoDB URI through Replit Secrets, verify database-user permissions for
+  both isolated DB names (including test cleanup on `curator_pytest`), then rerun diagnostics, tests, restart, and
+  smoke checks. See `docs/project-state.md`, `docs/troubleshooting.md`, and `docs/build-log.md`.
+
+## Initial Replit setup — 2026-10-14 (superseded by latest entry)
 - **Starting point:** imported `foundation/phase-1` at `56d10c8b39e2d8e43f4b4b62d88634493c9df731`, one Replit-settings
   commit newer than the brief's `f3e28f205137dea5ba85a34557344ea3dbe6ec23`. The newer commit changed `.replit` only.
 - **Working branch:** `portability/replit`. The development environment is set to Node 20 / Python 3.11 and uses
   `curator_replit_dev`; all requested secrets are present in the development environment.
-- **Workflow:** `Start application` is configured on port 5000 but not started because its startup migrations require
-  the currently unreachable MongoDB connection.
+- **Workflow:** `Start application` is configured on port 5000. Its initial startup attempt failed before database
+  authentication because the workspace could not complete Atlas TLS handshakes.
 - **Changes:** pinned `pytest-xdist` in `requirements-app.txt`, because the documented install omitted the plugin
   required by `pytest.ini`; added `replit.md`; updated the Replit deployment status below.
 - **Checks:** `install:all`, lint, TypeScript typecheck, and production build passed. Setup diagnostics report the
@@ -14,8 +37,8 @@
   fail. Smoke tests and signed-in/manual UI flows are blocked and were not claimed as passing.
 - **Data and providers:** no candidate outings were created; no real or production database records were changed.
   Interpretation remains guided, while research, notifications, and scheduling stay disabled.
-- **Blocker:** make the isolated development MongoDB reachable from Replit, then rerun diagnostics, tests, smoke,
-  account provisioning/seeding, and the required participant/admin flows. No deployment or branch merge was done.
+- **Initial blocker:** Atlas TLS connectivity. The latest entry records that network/TLS now work, but database
+  authentication is rejected. No deployment or branch merge was done.
 
 ## Latest entry — 2026-10-14 · Phase 1 foundation (milestones A, B, C + UI refinements)
 - **Branch:** `foundation/phase-1` on `github.com/ueu1121/Go-Curation` (repository was empty; no `main` exists yet —
@@ -77,7 +100,7 @@ n8n schedules (`n8n/README.md`), Firecrawl discovery, Gemini evidence-based extr
 | Task | Owner | Branch | Status |
 |---|---|---|---|
 | Phase 1 foundation | E1 | foundation/phase-1 | Done, awaiting owner review |
-| Replit portability reproduction | Replit Agent | portability/replit | In progress |
+| Replit portability reproduction | Replit Agent | portability/replit | Blocked on Atlas database authentication |
 
 ## Known limitations
 - Guided interpreter recognises a fixed set of phrasings; everything else becomes a note.

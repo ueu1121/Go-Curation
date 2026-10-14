@@ -8,7 +8,7 @@ One canonical production app + one database. Preview/test environments must use 
 | Emergent preview (supervisor: backend :8001, frontend :3000, ingress `/api` → backend) | **Verified** (dev/demo only) |
 | Docker single container (`Dockerfile`) | Documented, not yet verified |
 | Railway | Documented, not yet verified |
-| Replit | Configured; verification blocked by development MongoDB TLS connectivity |
+| Replit | Configured; TCP and verified TLS reach Atlas, but database authentication fails; app not yet verified |
 | Vercel (frontend only) | Documented, not yet verified |
 
 ## Canonical proposal

@@ -60,10 +60,13 @@ no separate auth callback or CORS origin is needed. If a split-origin setup is u
 
 ## Setup and verification status
 
-The app has not yet been verified running in Replit. The configured Atlas URI passes URI parsing, but connections
-from this workspace fail during the TLS handshake. Setup diagnostics therefore report the database as unreachable;
-migrations, account seeding, smoke testing, and signed-in UI flows are blocked until the development MongoDB
-connection is reachable. No database records or candidate outings were entered from this workspace.
+The app has not yet been verified running in Replit. The workspace's observed outbound IPv4 is `35.243.136.216`,
+matching the temporary Atlas access-list entry reported by the user. DNS, TCP/27017, and direct TLS 1.3 with
+certificate verification succeeded. The MongoDB driver then returned Atlas error `8000` (`bad auth:
+authentication failed`). Setup diagnostics, migrations, tests, and smoke verification remain blocked by database
+authentication; no user permissions are confirmed. The access-list entry's exact expiry is not visible from
+Replit, and a changed backend egress IP may require a new entry. See `docs/project-state.md` and
+`docs/troubleshooting.md`. No successful database operation or candidate outing was recorded.
 
 When the database is reachable, smoke-test the running Replit preview with:
 
